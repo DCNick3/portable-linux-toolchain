@@ -1,0 +1,36 @@
+--- a/Makerules	2010-07-27 15:34:39.000000000 +0400
++++ b/Makerules	2021-10-05 20:26:16.783953319 +0300
+@@ -990,11 +990,12 @@
+ 			$(+force)
+ 	(echo '/* GNU ld script';\
+ 	 echo '   Use the shared library, but some functions are only in';\
+-	 echo '   the static library, so try that secondarily.  */';\
++	 echo '   the static library, so try that secondarily.';\
++	 echo '   Patched to force the sysroot usage.  */';\
+ 	 cat $<; \
+-	 echo 'GROUP ( $(slibdir)/libc.so$(libc.so-version)' \
+-	      '$(libdir)/$(patsubst %,$(libtype.oS),$(libprefix)$(libc-name))'\
+-	      ' AS_NEEDED (' $(slibdir)/$(rtld-installed-name) ') )' \
++	 echo 'GROUP ( =$(slibdir)/libc.so$(libc.so-version)' \
++	      '=$(libdir)/$(patsubst %,$(libtype.oS),$(libprefix)$(libc-name))'\
++	      ' AS_NEEDED (' =$(slibdir)/$(rtld-installed-name) ') )' \
+ 	) > $@.new
+ 	mv -f $@.new $@
+ 
+--- a/nptl/Makefile	2010-07-27 15:34:39.000000000 +0400
++++ b/nptl/Makefile	2021-10-05 20:27:03.541654858 +0300
+@@ -381,10 +381,11 @@
+ 			      $(+force)
+ 	(echo '/* GNU ld script';\
+ 	 echo '   Use the shared library, but some functions are only in';\
+-	 echo '   the static library, so try that secondarily.  */';\
++	 echo '   the static library, so try that secondarily.';\
++	 echo '   Patched to force the sysroot usage.  */';\
+ 	 cat $<; \
+-	 echo 'GROUP ( $(slibdir)/libpthread.so$(libpthread.so-version)' \
+-	      '$(libdir)/$(patsubst %,$(libtype.oS),$(libprefix)pthread)'\
++	 echo 'GROUP ( =$(slibdir)/libpthread.so$(libpthread.so-version)' \
++	      '=$(libdir)/$(patsubst %,$(libtype.oS),$(libprefix)pthread)'\
+ 	      ')' \
+ 	) > $@.new
+ 	mv -f $@.new $@

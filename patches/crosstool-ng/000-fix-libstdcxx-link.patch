@@ -1,0 +1,48 @@
+diff --git a/scripts/build/cc/gcc.sh b/scripts/build/cc/gcc.sh
+index b076be50..27e340df 100644
+--- a/scripts/build/cc/gcc.sh
++++ b/scripts/build/cc/gcc.sh
+@@ -445,8 +445,8 @@ do_gcc_core_backend() {
+         # the libstdc++ is not pulled automatically, although it
+         # is needed. Shoe-horn it in our LDFLAGS
+         # Ditto libm on some Fedora boxen
+-        core_LDFLAGS+=("-lstdc++")
+-        core_LDFLAGS+=("-lm")
++        # core_LDFLAGS+=("-lstdc++")
++        # core_LDFLAGS+=("-lm")
+     else
+         if [ "${CT_CC_GCC_STATIC_LIBSTDCXX}" = "y" -a "${CT_GCC_older_than_6}" = "y" ]; then
+             # this is from CodeSourcery arm-2010q1-202-arm-none-linux-gnueabi.src.tar.bz2
+@@ -461,8 +461,8 @@ do_gcc_core_backend() {
+         # the libstdc++ is not pulled automatically, although it
+         # is needed. Shoe-horn it in our LDFLAGS
+         # Ditto libm on some Fedora boxen
+-        core_LDFLAGS+=("-lstdc++")
+-        core_LDFLAGS+=("-lm")
++        # core_LDFLAGS+=("-lstdc++")
++        # core_LDFLAGS+=("-lm")
+     fi
+ 
+     extra_config+=("--with-gmp=${complibs}")
+@@ -1083,8 +1083,8 @@ do_gcc_backend() {
+         # the libstdc++ is not pulled automatically, although it
+         # is needed. Shoe-horn it in our LDFLAGS
+         # Ditto libm on some Fedora boxen
+-        final_LDFLAGS+=("-lstdc++")
+-        final_LDFLAGS+=("-lm")
++        #final_LDFLAGS+=("-lstdc++")
++        #final_LDFLAGS+=("-lm")
+     else
+         if [ "${CT_CC_GCC_STATIC_LIBSTDCXX}" = "y" -a "${CT_GCC_older_than_6}" = "y" ]; then
+             # this is from CodeSourcery arm-2010q1-202-arm-none-linux-gnueabi.src.tar.bz2
+@@ -1099,8 +1099,8 @@ do_gcc_backend() {
+         # the libstdc++ is not pulled automatically, although it
+         # is needed. Shoe-horn it in our LDFLAGS
+         # Ditto libm on some Fedora boxen
+-        final_LDFLAGS+=("-lstdc++")
+-        final_LDFLAGS+=("-lm")
++        #final_LDFLAGS+=("-lstdc++")
++        #final_LDFLAGS+=("-lm")
+     fi
+ 
+     extra_config+=("--with-gmp=${complibs}")

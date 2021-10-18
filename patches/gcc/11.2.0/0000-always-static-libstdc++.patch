@@ -1,0 +1,11 @@
+--- a/gcc/cp/g++spec.c    2021-04-08 14:56:28.249742853 +0300
++++ b/gcc/cp/g++spec.c 2021-07-28 00:47:37.333718768 +0300
+@@ -335,6 +335,7 @@
+   /* Add `-lstdc++' if we haven't already done so.  */
+   if (library > 0)
+     {
++      library = 2;
+ #ifdef HAVE_LD_STATIC_DYNAMIC
+       if (library > 1 && !static_link)
+        {
+ 
