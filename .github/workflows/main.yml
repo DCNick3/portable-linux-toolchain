@@ -32,6 +32,14 @@ jobs:
           cache_registry: cache
           password: ${{ secrets.GITHUB_TOKEN }}
           rootfs_path: "toolchain-real.tar.gz"
+        
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@d2946e240e320230d1811f35b8ff71545eb5d458
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          args: ${{ github.sha }}
+        
           
       - name: Publish Release
         uses: softprops/action-gh-release@v1
