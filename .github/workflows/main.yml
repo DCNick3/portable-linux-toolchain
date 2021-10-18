@@ -30,6 +30,7 @@ jobs:
         with:
           cache: true
           cache_registry: cache
+          password: ${{ secrets.GITHUB_TOKEN }}
           rootfs_path: "toolchain-real.tar.gz"
 
       # Runs a single command using the runners shell
