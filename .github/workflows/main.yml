@@ -28,7 +28,6 @@ jobs:
       - name: Build toolchain using kaniko
         uses: DCNick3/action-kaniko-rootfs@master
         with:
-          image: toolchain
           cache: true
           cache_registry: cache
           rootfs_path: "toolchain-real.tar.gz"
