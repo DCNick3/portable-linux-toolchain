@@ -32,14 +32,8 @@ jobs:
           rootfs_path: "toolchain-real.tar.gz"
         
       - name: Create a Release
-        uses: elgohr/Github-Release-Action@d2946e240e320230d1811f35b8ff71545eb5d458
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        uses: djnicholson/release-action@e9a535b3eced09c460e07a84118fb74ae9b53236
         with:
-          args: ${{ github.sha }}
-        
-          
-      - name: Publish Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: "toolchain-real.tar.gz"
+            token: ${{ secrets.GITHUB_TOKEN }}
+            asset-name: 'toolchain.tar.gz'
+            file: 'toolchain-real.tar.gz'
