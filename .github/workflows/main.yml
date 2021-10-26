@@ -37,3 +37,4 @@ jobs:
             token: ${{ secrets.GITHUB_TOKEN }}
             asset-name: 'toolchain.tar.gz'
             file: 'toolchain-real.tar.gz'
+            tag-name: v${{ github.sha }}
